@@ -30,9 +30,16 @@ try:
     # Print the current URL to verify the click
     print(f"Current URL: {driver.current_url}")
     
-    # Find the button using its XPath and click it
-    button = driver.find_element("xpath", "/html/body/header/div/div/div/details/summary/div[1]")
-    button.click()
+    # Find the first button using its XPath and click it
+    first_button = driver.find_element("xpath", "/html/body/header/div/div/div/details/summary/div[1]")
+    first_button.click()
+
+    # Wait for the button action to complete
+    time.sleep(2)
+    
+    # Find the second button using its XPath and click it
+    second_button = driver.find_element("xpath", "/html/body/header/div/div/div/details/div/a[1]")
+    second_button.click()
 
     # Add some delay to observe the effect
     time.sleep(2)
