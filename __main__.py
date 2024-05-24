@@ -1,6 +1,13 @@
+import random
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+
+# Function to type text slowly with random delay
+def type_slowly(element, text, min_delay=0.05, max_delay=0.2):
+    for char in text:
+        element.send_keys(char)
+        time.sleep(random.uniform(min_delay, max_delay))
 
 # Set up the WebDriver (ensure ChromeDriver is in your PATH or provide the path to ChromeDriver)
 driver = webdriver.Chrome()
@@ -40,6 +47,14 @@ try:
     # Find the second button using its XPath and click it
     second_button = driver.find_element("xpath", "/html/body/header/div/div/div/details/div/a[1]")
     second_button.click()
+
+    # Wait for the button action to complete
+    time.sleep(2)
+
+    # Find the input field using its XPath, click it, and type "first name" slowly with random delay
+    input_field = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div[1]/div[1]/div/div[1]/div/div[1]/input")
+    input_field.click()
+    type_slowly(input_field, "first name")
 
     # Add some delay to observe the effect
     time.sleep(2)
