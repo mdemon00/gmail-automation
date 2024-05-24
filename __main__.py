@@ -51,10 +51,18 @@ try:
     # Wait for the button action to complete
     time.sleep(2)
 
-    # Find the input field using its XPath, click it, and type "first name" slowly with random delay
-    input_field = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div[1]/div[1]/div/div[1]/div/div[1]/input")
-    input_field.click()
-    type_slowly(input_field, "first name")
+    # Find the first input field using its XPath, click it, and type "first name" slowly with random delay
+    first_name_field = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div[1]/div[1]/div/div[1]/div/div[1]/input")
+    first_name_field.click()
+    type_slowly(first_name_field, "first name")
+
+    # Add a small delay
+    time.sleep(2)
+
+    # Find the second input field using its XPath, click it, and type "lastname" slowly with random delay
+    last_name_field = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[2]/div/div/div/form/span/section/div/div/div/div[1]/div[2]/div/div[1]/div/div[1]/input")
+    last_name_field.click()
+    type_slowly(last_name_field, "lastname")
 
     # Add some delay to observe the effect
     time.sleep(2)
