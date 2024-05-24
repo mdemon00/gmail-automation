@@ -64,6 +64,13 @@ try:
     last_name_field.click()
     type_slowly(last_name_field, "lastname")
 
+    # Add a small delay
+    time.sleep(2)
+
+    # Find the next button using its XPath and click it
+    next_button = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div/div/div/button/span")
+    next_button.click()
+
     # Add some delay to observe the effect
     time.sleep(2)
 
