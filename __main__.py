@@ -20,7 +20,7 @@ try:
     search_box = driver.find_element("name", "q")
     
     # Enter the search query and send the return key
-    search_query = "gmail.com"
+    search_query = "youtube.com"
     search_box.send_keys(search_query)
     search_box.send_keys(Keys.RETURN)
     
@@ -38,15 +38,19 @@ try:
     print(f"Current URL: {driver.current_url}")
     
     # Find the first button using its XPath and click it
-    first_button = driver.find_element("xpath", "/html/body/header/div/div/div/details/summary/div[1]")
+    first_button = driver.find_element("xpath", "/html/body/ytd-app/div[1]/div/ytd-masthead/div[4]/div[3]/div[2]/ytd-button-renderer/yt-button-shape/a/yt-touch-feedback-shape/div/div[2]")
     first_button.click()
 
     # Wait for the button action to complete
     time.sleep(2)
     
     # Find the second button using its XPath and click it
-    second_button = driver.find_element("xpath", "/html/body/header/div/div/div/details/div/a[1]")
-    second_button.click()
+    second_button = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[2]/div/div/div[1]/div/button/span")
+    second_button.click() 
+    
+    # Find the third button using its XPath and click it
+    third_button = driver.find_element("xpath", "/html/body/div[1]/div[1]/div[2]/c-wiz/div/div[3]/div/div[2]/div/div/div[2]/div/ul/li[1]/span[3]")
+    third_button.click()
 
     # Wait for the button action to complete
     time.sleep(2)
